@@ -242,7 +242,7 @@ class Biblioteca{
 
                 const libro = new Libro(e.titulo, e.autor, e.genero, e.anio, e.paginas, e.estado)
 
-                Object.defineProperty(libro, `_id`, {value : e.id , writable: false });
+                Object.defineProperty(libro, `_id`, {value : e.id , writable: false }); // en datos de prueba no tiene campo id y se agrega aqui
 
                 return libro;
 
