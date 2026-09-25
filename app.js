@@ -1,5 +1,3 @@
-
-
 class EntidadBase{
     constructor(){
         if(this.constructor === EntidadBase){
@@ -231,7 +229,8 @@ class Biblioteca{
         const datos = localStorage.getItem("biblioteca");
 
         if(datos === null){
-            return false
+            localStorage.setItem("biblioteca", JSON.stringify(datosPrueba));
+            return this.cargarDesdeLocalStorage();
         }
 
         try{
@@ -243,7 +242,7 @@ class Biblioteca{
 
                 const libro = new Libro(e.titulo, e.autor, e.genero, e.anio, e.paginas, e.estado)
 
-                Object.defineProperty(libro, `id`, {value : e.id , writable: false }); // en datos de prueba no tiene campo id y se agrega aqui
+                Object.defineProperty(libro, `_id`, {value : e.id , writable: false }); // en datos de prueba no tiene campo id y se agrega aqui
 
                 return libro;
 
@@ -429,7 +428,3 @@ document.getElementById("tabla-libros").addEventListener("click" , (evento) =>{
 
 
 });
-
-
-
-
